@@ -1,0 +1,15 @@
+package idris2-jupyter
+
+sourcedir = "Idris2Jupyter"
+
+depends = python
+
+modules =
+    Idris2Jupyter,
+    Idris2Jupyter.CommandLineInterface,
+    Idris2Jupyter.IPyKernel,
+    Idris2Jupyter.IPyKernelInstance,
+    Idris2Jupyter.Pexpect
+
+main = Idris2Jupyter
+executable = idris2-jupyter

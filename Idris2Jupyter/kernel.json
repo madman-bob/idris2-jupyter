@@ -1,0 +1,11 @@
+{
+  "argv": [
+    "python",
+    "-m",
+    "idris2-jupyter",
+    "-f",
+    "{connection_file}"
+  ],
+  "display_name": "Idris 2",
+  "language": "idris2"
+}
