@@ -29,12 +29,12 @@ IPyKernelBase = primIO prim__IPyKernelBase
 public export
 record IPyKernel where
     constructor MkIPyKernel
-    kernelName : StringUTF8
-    kernelVersion : StringUTF8
-    banner : StringUTF8
+    kernelName : String
+    kernelVersion : String
+    banner : String
     languageInfo : LanguageInfo
     doExecute : (ker : IPyKernelInstance)
-             => (code : StringUTF8)
+             => (code : String)
              -> (silent : Bool)
              -> (storeHistory : Bool)
              -> (userExpressions : PythonDict)
@@ -42,7 +42,7 @@ record IPyKernel where
              -> IO PythonDict
 
 wrapDoExecute : (doExecute : (ker : IPyKernelInstance)
-                          => (code : StringUTF8)
+                          => (code : String)
                           -> (silent : Bool)
                           -> (storeHistory : Bool)
                           -> (userExpressions : PythonDict)
@@ -56,7 +56,7 @@ wrapDoExecute : (doExecute : (ker : IPyKernelInstance)
              -> (allowStdin : PythonBool)
              -> PrimIO PythonDict
 wrapDoExecute doExecute ker code silent storeHistory userExpressions allowStdin =
-    toPrimIO $ do doExecute @{ker} code !(isTruthy silent) !(isTruthy storeHistory) userExpressions !(isTruthy allowStdin)
+    toPrimIO $ do doExecute @{ker} (fromUTF8 code) !(isTruthy silent) !(isTruthy storeHistory) userExpressions !(isTruthy allowStdin)
 
 export
 toPyClass : HasIO io => IPyKernel -> io PythonClass
@@ -68,7 +68,7 @@ toPyClass (MkIPyKernel kernelName kernelVersion banner languageInfo doExecute) =
         ("language_info", languageInfo),
         ("do_execute", wrapDoExecute doExecute)
         ]
-    subclass kernelName [!IPyKernelBase] d
+    subclass (toUTF8 kernelName) [!IPyKernelBase] d
 
 export
 HasIO io => PythonType io IPyKernel where

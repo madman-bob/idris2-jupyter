@@ -8,7 +8,7 @@ import Idris2Jupyter.IPyKernel
 export
 doExecute : (idris2 : CommandLineInterface)
          -> (ker : IPyKernelInstance)
-         => (code : StringUTF8)
+         => (code : String)
          -> (silent : Bool)
          -> (storeHistory : Bool)
          -> (userExpressions : PythonDict)

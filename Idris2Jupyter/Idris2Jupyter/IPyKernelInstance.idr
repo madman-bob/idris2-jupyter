@@ -32,5 +32,5 @@ ioPubSocket @{_} @{ker} = primIO $ prim__py_ioPubSocket ker
 prim__py_sendResponse : IPyKernelInstance -> IPyKernelSocket -> StringUTF8 -> PythonDict -> PrimIO ()
 
 export
-sendResponse : HasIO io => IPyKernelInstance => IPyKernelSocket -> StringUTF8 -> PythonDict -> io ()
-sendResponse @{_} @{ker} soc s d = primIO $ prim__py_sendResponse ker soc s d
+sendResponse : HasIO io => IPyKernelInstance => IPyKernelSocket -> String -> PythonDict -> io ()
+sendResponse @{_} @{ker} soc s d = primIO $ prim__py_sendResponse ker soc (toUTF8 s) d

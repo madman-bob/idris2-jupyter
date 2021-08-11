@@ -8,10 +8,10 @@ export
 record CommandLineInterface where
     constructor MkCommandLineInterface
     process : Process
-    prompt : StringUTF8
+    prompt : String
 
 export
-start : HasIO io => (cli : StringUTF8) -> (prompt : StringUTF8) -> io (CommandLineInterface, StringUTF8)
+start : HasIO io => (cli : String) -> (prompt : String) -> io (CommandLineInterface, String)
 start cli prompt = do
     process <- spawn cli
     _ <- expect process prompt
@@ -19,7 +19,7 @@ start cli prompt = do
     pure (MkCommandLineInterface process prompt, preamble)
 
 export
-run : HasIO io => CommandLineInterface -> (cmd : StringUTF8) -> io StringUTF8
+run : HasIO io => CommandLineInterface -> (cmd : String) -> io String
 run (MkCommandLineInterface process prompt) cmd = do
     _ <- sendLine process cmd
     _ <- expect process prompt
