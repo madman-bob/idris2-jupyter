@@ -4,6 +4,7 @@ import Python
 
 import Idris2Jupyter.CommandLineInterface
 import Idris2Jupyter.IPyKernel
+import Idris2Jupyter.Response
 
 export
 doExecute : (idris2 : CommandLineInterface)
@@ -18,10 +19,7 @@ doExecute idris2 code silent storeHistory userExpressions allowStdin = do
     response <- run idris2 code
 
     if not silent
-        then sendResponse !ioPubSocket "stream" !(toPyDict [
-            ("name", "stdout"),
-            ("text", response)
-            ])
+        then sendResponse response
         else pure ()
 
     toPyDict [
