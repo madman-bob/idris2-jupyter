@@ -10,7 +10,6 @@ modules =
     Idris2Jupyter.IPyKernel,
     Idris2Jupyter.IPyKernelInstance,
     Idris2Jupyter.IPythonResponse,
-    Idris2Jupyter.Pexpect,
     Idris2Jupyter.Response
 
 main = Idris2Jupyter

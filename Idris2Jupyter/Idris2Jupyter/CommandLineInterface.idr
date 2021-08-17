@@ -2,25 +2,25 @@ module Idris2Jupyter.CommandLineInterface
 
 import Python
 
-import Idris2Jupyter.Pexpect
-
 export
-record CommandLineInterface where
-    constructor MkCommandLineInterface
-    process : Process
-    prompt : String
+data CommandLineInterface : Type where [external]
+
+%foreign "python: REPLWrapper, pexpect.replwrap"
+prim__cli_start : StringUTF8 -> StringUTF8 -> PythonObject -> PrimIO CommandLineInterface
+
+%foreign "python: lambda repl: repl.child.before"
+prim__cli_preamble : CommandLineInterface -> PrimIO StringUTF8
 
 export
 start : HasIO io => (cli : String) -> (prompt : String) -> io (CommandLineInterface, String)
 start cli prompt = do
-    process <- spawn cli
-    _ <- expect process prompt
-    preamble <- before process
-    pure (MkCommandLineInterface process prompt, preamble)
+    cli <- primIO $ prim__cli_start (toUTF8 cli) (toUTF8 prompt) !(toPy ())
+    preamble <- primIO $ prim__cli_preamble cli
+    pure (cli, fromUTF8 preamble)
+
+%foreign "python: REPLWrapper.run_command, pexpect.replwrap"
+prim__cli_run : CommandLineInterface -> StringUTF8 -> PrimIO StringUTF8
 
 export
 run : HasIO io => CommandLineInterface -> (cmd : String) -> io String
-run (MkCommandLineInterface process prompt) cmd = do
-    _ <- sendLine process cmd
-    _ <- expect process prompt
-    before process
+run cli cmd = map fromUTF8 $ primIO $ prim__cli_run cli (toUTF8 cmd)
