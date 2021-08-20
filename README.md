@@ -24,3 +24,9 @@ PYTHONPATH=build/exec/ jupyter notebook
 ```
 
 Note that the cells use the Idris 2 REPL syntax, rather than the syntax used in `.idr` files.
+
+### Importing packages
+
+Additional packages may be made accessible using the
+[`.ipkg` format](https://idris2.readthedocs.io/en/latest/tutorial/packages.html).
+The `.ipkg` file will be found as though by the `--find-ipkg` flag, from the working directory.

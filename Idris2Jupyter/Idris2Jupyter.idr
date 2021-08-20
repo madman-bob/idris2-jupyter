@@ -29,7 +29,7 @@ doExecute idris2 code silent storeHistory userExpressions allowStdin = do
 
 main : IO ()
 main = do
-    (idris2, preamble) <- start "idris2" "Main> "
+    (idris2, preamble) <- start "idris2 --find-ipkg --ignore-missing-ipkg" "Main> "
 
     launch (MkIPyKernel
         "Idris2Kernel"
