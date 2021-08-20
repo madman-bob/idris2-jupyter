@@ -4,17 +4,13 @@ A Jupyter Kernel for Idris 2.
 
 ## Installation
 
-Build `Idris2-Jupyter` using the Idris 2
-[Python backend](https://github.com/madman-bob/idris2-python).
+Ensure that the Idris 2 [Python backend](https://github.com/madman-bob/idris2-python)
+is installed, in a sibling directory of this repository.
+
+Then run:
 
 ```bash
-idris2-python --build idris2-jupyter.ipkg
-```
-
-Add the `Idris2-Jupyter` kernelspec to Jupyter.
-
-```bash
-jupyter kernelspec install --user Idris2Jupyter/
+make install
 ```
 
 ## Running notebooks
