@@ -2,6 +2,8 @@ module Idris2Jupyter.CommandLineInterface
 
 import Python
 
+%default total
+
 export
 data CommandLineInterface : Type where [external]
 

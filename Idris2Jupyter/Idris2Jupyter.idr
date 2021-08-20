@@ -6,6 +6,8 @@ import Idris2Jupyter.CommandLineInterface
 import Idris2Jupyter.IPyKernel
 import Idris2Jupyter.Response
 
+%default total
+
 export
 doExecute : (idris2 : CommandLineInterface)
          -> (ker : IPyKernelInstance)

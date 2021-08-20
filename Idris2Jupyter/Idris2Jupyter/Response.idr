@@ -4,6 +4,8 @@ import Python
 
 import Idris2Jupyter.IPyKernelInstance
 
+%default total
+
 ||| How to send an object as a response to a running Jupyter kernel
 public export
 interface JupyterResponse a where

@@ -2,6 +2,8 @@ module Idris2Jupyter.IPyKernelInstance
 
 import Python
 
+%default total
+
 export
 data IPyKernelSocket : Type where [external]
 

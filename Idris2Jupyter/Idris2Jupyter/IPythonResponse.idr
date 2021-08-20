@@ -5,6 +5,8 @@ import Python
 import Idris2Jupyter.IPyKernelInstance
 import Idris2Jupyter.Response
 
+%default total
+
 ||| Defining this interface on a type represents a promise that the resultant
 ||| Python object implements the IPython _repr_mimebundle_ display method, as
 ||| described in

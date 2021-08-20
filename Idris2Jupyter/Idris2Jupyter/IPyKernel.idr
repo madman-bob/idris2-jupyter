@@ -4,6 +4,8 @@ import Python
 
 import public Idris2Jupyter.IPyKernelInstance
 
+%default total
+
 public export
 record LanguageInfo where
     constructor MkLanguageInfo
