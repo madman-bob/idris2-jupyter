@@ -1,0 +1,13 @@
+package jupyter
+
+sourcedir = "JupyterBindings"
+
+depends = python
+
+modules =
+    Jupyter,
+    Jupyter.CommandLineInterface,
+    Jupyter.IPyKernel,
+    Jupyter.IPyKernelInstance,
+    Jupyter.IPythonResponse,
+    Jupyter.Response

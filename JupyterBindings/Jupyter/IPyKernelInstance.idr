@@ -1,4 +1,4 @@
-module Idris2Jupyter.IPyKernelInstance
+module Jupyter.IPyKernelInstance
 
 import Python
 

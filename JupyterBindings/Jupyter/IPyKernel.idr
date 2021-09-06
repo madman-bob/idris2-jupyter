@@ -1,8 +1,8 @@
-module Idris2Jupyter.IPyKernel
+module Jupyter.IPyKernel
 
 import Python
 
-import public Idris2Jupyter.IPyKernelInstance
+import public Jupyter.IPyKernelInstance
 
 %default total
 

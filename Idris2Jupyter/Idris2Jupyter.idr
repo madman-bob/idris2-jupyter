@@ -2,9 +2,8 @@ module Idris2Jupyter
 
 import Python
 
-import Idris2Jupyter.CommandLineInterface
-import Idris2Jupyter.IPyKernel
-import Idris2Jupyter.Response
+import Jupyter
+import Jupyter.CommandLineInterface
 
 %default total
 

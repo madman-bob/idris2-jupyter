@@ -1,8 +1,8 @@
-module Idris2Jupyter.Response
+module Jupyter.Response
 
 import Python
 
-import Idris2Jupyter.IPyKernelInstance
+import Jupyter.IPyKernelInstance
 
 %default total
 

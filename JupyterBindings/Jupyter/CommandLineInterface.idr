@@ -1,4 +1,4 @@
-module Idris2Jupyter.CommandLineInterface
+module Jupyter.CommandLineInterface
 
 import Python
 
