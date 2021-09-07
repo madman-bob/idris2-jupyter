@@ -5,7 +5,8 @@ sourcedir = "Idris2Jupyter"
 depends = python, jupyter
 
 modules =
-    Idris2Jupyter
+    Idris2Jupyter,
+    Idris2Jupyter.InstalledPlugins
 
 main = Idris2Jupyter
 executable = idris2-jupyter

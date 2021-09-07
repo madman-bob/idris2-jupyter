@@ -4,6 +4,9 @@ import Python
 
 import Jupyter
 import Jupyter.CommandLineInterface
+import Jupyter.Plugins
+
+import Idris2Jupyter.InstalledPlugins
 
 %default total
 
@@ -17,10 +20,12 @@ doExecute : (idris2 : CommandLineInterface)
          -> (allowStdin : Bool)
          -> IO PythonDict
 doExecute idris2 code silent storeHistory userExpressions allowStdin = do
-    response <- run idris2 code
+    rawResponse <- run idris2 code
 
     if not silent
-        then sendResponse response
+        then do
+            Evidence _ (_, richResponse) <- parseResponse InstalledPlugins rawResponse
+            sendResponse richResponse
         else pure ()
 
     toPyDict [

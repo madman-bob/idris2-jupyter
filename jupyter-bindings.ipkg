@@ -10,4 +10,5 @@ modules =
     Jupyter.IPyKernel,
     Jupyter.IPyKernelInstance,
     Jupyter.IPythonResponse,
+    Jupyter.Plugins,
     Jupyter.Response
