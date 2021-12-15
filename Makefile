@@ -36,7 +36,8 @@ install: idris2-jupyter
 	jupyter kernelspec install --user Idris2Jupyter/
 
 clean:
-	rm -rf build
+	$(RM) -r build
+	git checkout idris2-jupyter.ipkg Idris2Jupyter/Idris2Jupyter/InstalledPlugins.idr plugins.txt
 
 uninstall:
 	jupyter kernelspec uninstall idris2jupyter
