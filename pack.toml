@@ -1,0 +1,24 @@
+[custom.all.idris2-python]
+type        = "github"
+url         = "https://github.com/stefan-hoeck/idris2-python"
+commit      = "latest:pack"
+ipkg        = "idris2-python.ipkg"
+packagePath = true
+
+[custom.all.python]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-python"
+commit = "latest:pack"
+ipkg   = "python-bindings.ipkg"
+
+[custom.all.jupyter]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-jupyter"
+commit = "latest:pack"
+ipkg   = "jupyter-bindings.ipkg"
+
+[custom.all.idris2-jupyter-vega]
+type   = "github"
+url    = "https://github.com/stefan-hoeck/idris2-jupyter-vega"
+commit = "latest:pack"
+ipkg   = "idris2-jupyter-vega.ipkg"
