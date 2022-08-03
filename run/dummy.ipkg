@@ -1,0 +1,3 @@
+package dummy
+
+depends = contrib, python, jupyter, idris2-jupyter-vega, vegatest

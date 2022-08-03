@@ -22,3 +22,8 @@ type   = "github"
 url    = "https://github.com/stefan-hoeck/idris2-jupyter-vega"
 commit = "latest:pack"
 ipkg   = "idris2-jupyter-vega.ipkg"
+
+[custom.all.vegatest]
+type = "local"
+path = "vegatest"
+ipkg = "vegatest.ipkg"
