@@ -2,6 +2,7 @@ module Idris2Jupyter.InstalledPlugins
 
 import Jupyter
 import Jupyter.Plugins
+import Idris2JupyterVega.VegaLite
 
 -- Plugin imports
 
@@ -10,7 +11,7 @@ import Jupyter.Plugins
 export
 0
 InstalledPlugins : List Type
-InstalledPlugins = []
+InstalledPlugins = [RawVegaLite]
 
 -- Separating %search and %hint declarations to prevent it from finding itself, causing a runtime infinite loop
 installedPluginIdris2Responses' : All Idris2Response InstalledPlugins

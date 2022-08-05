@@ -2,7 +2,7 @@ package idris2-jupyter
 
 sourcedir = "Idris2Jupyter"
 
-depends = python, jupyter
+depends = contrib, python, jupyter, idris2-jupyter-vega
 
 modules =
     Idris2Jupyter,
